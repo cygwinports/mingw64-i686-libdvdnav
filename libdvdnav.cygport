@@ -1,0 +1,25 @@
+NAME="libdvdnav"
+VERSION=4.2.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="DVD navigation library"
+DESCRIPTION="libdvdnav is a library that allows easy use of sophisticated
+DVD navigation features such as DVD menus, multiangle playback and even
+interactive DVD games. All this functionality is provided through a simple
+API which provides the DVD playback as a single logical stream of blocks,
+intermitted by special dvdnav events to report certain conditions. The main
+usage of libdvdnav is a loop regularly calling a function to get the next
+block, surrounded by additional calls to tell the library of user
+interaction. The whole DVD virtual machine and internal playback states are
+completely encapsulated."
+HOMEPAGE="http://dvdnav.mplayerhq.hu/"
+SRC_URI="http://dvdnav.mplayerhq.hu/releases/libdvdnav-${VERSION}.tar.bz2"
+
+PATCH_URI="4.1.3-libtool22.patch
+           4.1.3-dvdnavmini.patch"
+
+PKG_NAMES="${NAME}4 ${NAME}-devel"
+libdvdnav4_CONTENTS="usr/bin/cygdvdnav-4.dll usr/share/doc/"
+libdvdnav_devel_CONTENTS="usr/bin/*-config usr/include/ usr/lib/ usr/share/aclocal/"
+
+DIFF_EXCLUDES="Makefile"
